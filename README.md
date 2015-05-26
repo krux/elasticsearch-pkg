@@ -3,6 +3,12 @@ Krux specific packaging of elasticsearch
 
 ## Packaging
 
+* Run ```./package.sh``` from the root of this checkout
+
+## Bundled plugins
+
+* [elasticsearch-cloud-aws 2.5.1](https://github.com/elastic/elasticsearch-cloud-aws/tree/v2.5.1)
+
 ## Updating the source
 
 * Grab the latest tarball release from [elastic](https://www.elastic.co/downloads/elasticsearch)
