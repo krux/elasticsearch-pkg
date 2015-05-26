@@ -16,7 +16,8 @@ TARGET=$( basename $( readlink $NAME ) )
 
 ### Packaging info
 PACKAGE_NAME=$NAME
-PACKAGE_VERSION=$( echo $TARGET | perl -ne '/([\d.]+)/; print $1')~krux$( date -u +%Y%m%d%H%M )
+### Because 1.5.2 > 1.5.2~krux... we prefix the version with 1: to win on sorting.
+PACKAGE_VERSION=1:$( echo $TARGET | perl -ne '/([\d.]+)/; print $1')~krux$( date -u +%Y%m%d%H%M )
 
 ### Where this package will be installed
 DEST_DIR="/usr/local/${NAME}/"
