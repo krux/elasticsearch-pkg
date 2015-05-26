@@ -10,6 +10,6 @@ Krux specific packaging of elasticsearch
 * Update the ```elasticsearch``` symlink to point to the new directory
 * Update any plugins:
   * Install java8: ```apt-get install oracle-java-8```
-  * Update the plugin: ```JAVA_HOME=/usr/local/oracle-java-8/ bin/plugin install $PLUGIN```
+  * Update the plugin: ```JAVA_HOME=/usr/local/oracle-java-8/ elasticsearch/bin/plugin install $PLUGIN```
 * (OPTIONAL) Clean up the old directory
 * Commit your changes
