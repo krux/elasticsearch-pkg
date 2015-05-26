@@ -20,7 +20,9 @@ PACKAGE_NAME=$NAME
 PACKAGE_VERSION=1:$( echo $TARGET | perl -ne '/([\d.]+)/; print $1')~krux$( date -u +%Y%m%d%H%M )
 
 ### Where this package will be installed
-DEST_DIR="/usr/local/${NAME}/"
+### Because this is a re-package of the official debian package, the prefix is /, ie the
+### root directory.
+DEST_DIR="/"
 
 ### Where the sources live
 SOURCE_DIR="${MY_DIR}/${TARGET}"
