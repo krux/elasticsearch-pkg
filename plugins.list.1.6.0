@@ -1,0 +1,6 @@
+# Format/instructions described here:
+# https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-plugins.html
+#
+# Automated AWS discovery. From here:
+# https://github.com/elastic/elasticsearch-cloud-aws/tree/v2.6.0
+elasticsearch/elasticsearch-cloud-aws/2.6.0
