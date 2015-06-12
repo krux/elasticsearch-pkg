@@ -3,7 +3,7 @@ Krux specific packaging of elasticsearch
 
 ## Packaging
 
-* Install Java8: apt-get install oracle-java-8
+* Install Java8: ```apt-get install oracle-java-8```
 * Run ```./package.sh``` from the root of this checkout
 
 ## Bundled plugins
