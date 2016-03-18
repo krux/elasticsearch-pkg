@@ -13,6 +13,7 @@ NAME=elasticsearch
 ### This is something like elasticsearch-1.5.2
 TARGET=$( basename $( readlink $NAME ) )
 
+
 ### Where the sources live
 SOURCE_DIR="${MY_DIR}/${TARGET}"
 
@@ -20,22 +21,11 @@ SOURCE_DIR="${MY_DIR}/${TARGET}"
 ### Plugin/config settings
 ###
 
-PLUGIN_BIN=$SOURCE_DIR/usr/share/elasticsearch/bin/plugin
+PLUGIN_BIN=$SOURCE_DIR/bin/plugin
 
 ### The default is a krux-ism, but set that if it's not otherwise specified
 JAVA_HOME=${JAVA_HOME-"/usr/local/oracle-java-8/"}
 export JAVA_HOME
-
-### We have to set these because of this bug in ES 1.6:
-### https://github.com/elastic/elasticsearch/issues/11612
-### Once fixed, we can remove these
-ES_INCLUDE=$SOURCE_DIR/etc/default/elasticsearch
-CONF_FILE=$SOURCE_DIR/etc/elasticsearch/elasticsearch.yaml
-CONF_DIR=$SOURCE_DIR/etc/elasticsearch
-
-export ES_INCLUDE
-export CONF_FILE
-export CONF_DIR
 
 ###
 ### Package settings
@@ -54,14 +44,14 @@ DEST_DIR="/"
 ###
 ### Plugins to be installed
 ###
-PLUGINS=`cat plugins.list | grep -v ^#`
+PLUGINS=`grep -v ^# plugins.list`
 
 ### Install plugins into package dir
 for p in $PLUGINS; do
   ### First, we REMOVE the plugin; because the install command will fail if the plugin is already
   ### there, and the remove command will NOT fail if the plugin is NOT there.
-  $PLUGIN_BIN --remove $p
-  $PLUGIN_BIN --install $p
+  $PLUGIN_BIN remove $p
+  $PLUGIN_BIN install $p
 done
 
 ###
