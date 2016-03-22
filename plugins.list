@@ -1,1 +1,6 @@
-plugins.list.1.6.0
+# Format/instructions described here:
+# https://www.elastic.co/guide/en/elasticsearch/plugins/2.2/cloud-aws.html
+#
+#  bin/plugin install cloud-aws
+#  sudo bin/plugin remove cloud-aws
+cloud-aws
