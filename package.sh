@@ -13,7 +13,6 @@ NAME=elasticsearch
 ### This is something like elasticsearch-1.5.2
 TARGET=$( basename $( readlink $NAME ) )
 
-
 ### Where the sources live
 SOURCE_DIR="${MY_DIR}/${TARGET}"
 
@@ -21,7 +20,7 @@ SOURCE_DIR="${MY_DIR}/${TARGET}"
 ### Plugin/config settings
 ###
 
-PLUGIN_BIN=$SOURCE_DIR/bin/plugin
+PLUGIN_BIN="${SOURCE_DIR}/usr/bin/plugin"
 
 ### The default is a krux-ism, but set that if it's not otherwise specified
 JAVA_HOME=${JAVA_HOME-"/usr/local/oracle-java-8/"}
@@ -61,4 +60,3 @@ done
 ### run fpm
 FPM=$( which fpm )
 $FPM -s dir -t deb -a all -n $PACKAGE_NAME -v $PACKAGE_VERSION --prefix $DEST_DIR -C $SOURCE_DIR $@ .
-
